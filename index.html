@@ -3,11 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhishek Muchalambe</title>
+  <title>Abhishek Muchalambe | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      color: #00ffcc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 50px 20px;
+    }
+    .projects {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #1f2a40;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      background: #111;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>👋 Hi, I’m Abhishek Muchalambe</h1>
-  <p>💻 Software Developer | Python & ML Enthusiast | Open Source Contributor</p>
-  <p>Welcome to my portfolio site!</p>
+  <header>
+    <h1>👋 Hi, I’m Abhishek Muchalambe</h1>
+    <p>💻 Software Developer | Python & ML Enthusiast | Open Source Contributor</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I love building real-world projects in Python, Machine Learning, and Web Development.  
+    Passionate about open-source and sharing knowledge with the community.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects 🚀</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="https://picsum.photos/280/150?random=1" alt="Project 1">
+        <h3>Fake News Detector</h3>
+        <p>A machine learning project that detects fake news using NLP and classification models.</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/280/150?random=2" alt="Project 2">
+        <h3>Contribution Snake</h3>
+        <p>Generates an animated snake 🐍 from GitHub contribution graphs.</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/280/150?random=3" alt="Project 3">
+        <h3>Portfolio Website</h3>
+        <p>This very website hosted using GitHub Pages ✨.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact 📩</h2>
+    <p>📧 Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>🔗 LinkedIn: <a href="https://linkedin.com/in/abhishekmuchalambe" target="_blank">linkedin.com/in/abhishekmuchalambe</a></p>
+    <p>🐙 GitHub: <a href="https://github.com/abhishekmuchalambe" target="_blank">github.com/abhishekmuchalambe</a></p>
+  </section>
+
+  <footer>
+    © 2025 Abhishek Muchalambe | Built with ❤️ using GitHub Pages
+  </footer>
 </body>
 </html>
