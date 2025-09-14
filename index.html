@@ -1,123 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhishek Muchalambe | Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #141e30, #243b55);
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 60px 20px;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-    nav {
-      margin: 20px 0;
-    }
-    nav a {
-      color: #00ffcc;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 50px 20px;
-    }
-    .projects {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: #1f2a40;
-      border-radius: 12px;
-      padding: 20px;
-      width: 280px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    footer {
-      background: #111;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    footer a {
-      color: #00ffcc;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abhishek Muchalambe | Portfolio</title>
+<style>
+:root {
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --card-bg: #fff;
+  --primary-color: #0077b5;
+  --secondary-color: #005582;
+}
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --primary-color: #00c6ff;
+  --secondary-color: #0077b5;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Header */
+header {
+  background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  padding: 120px 20px 60px 20px;
+  position: relative;
+}
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-bottom: 20px;
+}
+header h1 { font-size: 2.5rem; margin: 10px 0; }
+header p { font-size: 1.2rem; max-width: 600px; margin: 10px auto; }
+
+/* Dark Mode Toggle */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+body.dark .toggle-btn { background: #333; color: white; }
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+nav a { margin: 0 20px; font-weight: bold; color: var(--text-color); transition: color 0.3s; }
+nav a:hover { color: var(--primary-color); }
+
+/* Sections */
+section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+h2 { text-align: center; color: var(--primary-color); margin-bottom: 20px; }
+
+/* About */
+#about p { font-size: 1.1rem; line-height: 1.6; }
+
+/* Skills */
+.skills { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+.skill {
+  background: var(--card-bg);
+  padding: 15px 25px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  transition: 0.3s;
+}
+body.dark .skill { box-shadow: 0 2px 6px rgba(255,255,255,0.05); }
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+.project-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.2s, background 0.3s;
+}
+.project-card:hover { transform: translateY(-5px); }
+
+/* Certifications */
+.certifications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.cert-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.2s;
+}
+.cert-card:hover { transform: translateY(-5px); }
+.cert-card img { width: 60px; vertical-align: middle; margin-right: 10px; }
+
+/* Contact */
+.links a {
+  display: inline-block;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.links a:hover { background: var(--secondary-color); }
+
+footer {
+  background: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>👋 Hi, I’m Abhishek Muchalambe</h1>
-    <p>💻 Software Developer | Python & ML Enthusiast | Open Source Contributor</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I love building real-world projects in Python, Machine Learning, and Web Development.  
-    Passionate about open-source and sharing knowledge with the community.</p>
-  </section>
+<header>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <img src="profile.jpg" alt="Abhishek Muchalambe">
+  <h1>Class 10 Student | Python Programming Enthusiast | Future Tech Innovator</h1>
+  <p>MEMBER OF GDG PUNE & MEMBER OF TECHFEST AT IIT BOMBAY</p>
+</header>
 
-  <section id="projects">
-    <h2>Projects 🚀</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="https://picsum.photos/280/150?random=1" alt="Project 1">
-        <h3>Fake News Detector</h3>
-        <p>A machine learning project that detects fake news using NLP and classification models.</p>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/280/150?random=2" alt="Project 2">
-        <h3>Contribution Snake</h3>
-        <p>Generates an animated snake 🐍 from GitHub contribution graphs.</p>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/280/150?random=3" alt="Project 3">
-        <h3>Portfolio Website</h3>
-        <p>This very website hosted using GitHub Pages ✨.</p>
-      </div>
-    </div>
-  </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section id="contact">
-    <h2>Contact 📩</h2>
-    <p>📧 Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>🔗 LinkedIn: <a href="https://linkedin.com/in/abhishekmuchalambe" target="_blank">linkedin.com/in/abhishekmuchalambe</a></p>
-    <p>🐙 GitHub: <a href="https://github.com/abhishekmuchalambe" target="_blank">github.com/abhishekmuchalambe</a></p>
-  </section>
+<section id="about">
+<h2>About Me</h2>
+<p>
+Hi! I'm a Class 10 student passionate about coding and emerging technologies.<br><br>
+I recently completed the "Programming Basics (CS101.1x)" course offered by IIT Bombay via Techfest, 
+where I learned core programming concepts and got hands-on with Python.<br><br>
+🚀 I'm currently exploring Python, AI, and web development — always eager to learn, build, and innovate.<br>
+💡 I believe technology can transform lives, and I aspire to be a tech innovator who contributes to meaningful change.<br><br>
+Let’s connect and grow together in the world of tech! 🌍💻
+</p>
+</section>
 
-  <footer>
-    © 2025 Abhishek Muchalambe | Built with ❤️ using GitHub Pages
-  </footer>
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+  <div class="skill">Python</div>
+  <div class="skill">HTML & CSS</div>
+  <div class="skill">JavaScript (Basics)</div>
+  <div class="skill">Git & GitHub</div>
+  <div class="skill">AI & Machine Learning</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects">
+  <div class="project-card">
+    <h3>Snake Game on GitHub Contributions</h3>
+    <p>Generates a snake game from a GitHub contributions graph and outputs it as an animated SVG/GIF.</p>
+  </div>
+  <div class="project-card">
+    <h3>Portfolio Website</h3>
+    <p>My personal portfolio showcasing my skills, projects, and achievements using HTML, CSS, and GitHub Pages.</p>
+  </div>
+  <div class="project-card">
+    <h3>AI Chatbot (Learning)</h3>
+    <p>Currently working on a simple chatbot using Python and basic NLP techniques.</p>
+  </div>
+</div>
+</section>
+
+<section id="certifications">
+<h2>Licenses & Certifications</h2>
+<div class="certifications">
+  <div class="cert-card">
+    <img src="google-cloud.png" alt="Google Cloud Logo">
+    <strong>Introduction To Generative AI</strong><br>Google Cloud Skills Boost | Issued Feb 2025 | Credential ID REOX950B9IYD
+  </div>
+  <div class="cert-card">
+    <img src="google-cloud.png" alt="Google Cloud Logo">
+    <strong>Introduction to Large Language Models</strong><br>Google Cloud Security | Issued Feb 2025 | Credential ID 77H4FWXIK5VC
+  </div>
+  <div class="cert-card">
+    <img src="iitb-logo.png" alt="IIT Bombay Logo">
+    <strong>Programming Basics (CS101.1x)</strong><br>Indian Institute of Technology, Bombay | Issued Sep 2024 | Credential ID RXCVC117567DC
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Let’s connect and grow together in the world of tech! 🌍💻</p>
+<div class="links">
+  <a href="https://linkedin.com/in/abhishek-muchalambe-23877833a" target="_blank">LinkedIn</a>
+  <a href="https://fueler.io/abhishekmuchalambe" target="_blank">Portfolio</a>
+  <a href="https://abhishekmuchalambe.github.io/#projects" target="_blank">Projects</a>
+  <a href="mailto:abhishekmuchalambe@gmail.com">Email Me</a>
+</div>
+</section>
+
+<footer>
+<p>© 2025 Abhishek Muchalambe | Built with ❤️ using HTML, CSS & JavaScript</p>
+</footer>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  const btn = document.querySelector(".toggle-btn");
+  btn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+}
+</script>
+
 </body>
 </html>
