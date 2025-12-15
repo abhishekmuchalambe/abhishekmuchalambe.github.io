@@ -4,190 +4,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhishek Muchalambe | 3D Portfolio</title>
-
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:radial-gradient(circle at top,#0f2027,#000);
-  color:#eaf4ff;
-  overflow-x:hidden;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0f2027, #000);
+  color: #eaf4ff;
+  overflow-x: hidden;
 }
 
-/* ===== PARTICLES CANVAS ===== */
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:-1;
+/* Canvas for stars */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-/* ===== HEADER ===== */
-header{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+/* Header */
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-card {
+  width: 340px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  transform-style: preserve-3d;
+}
+.profile-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #00c6ff;
+  margin-bottom: 15px;
+}
+.profile-card h1 {
+  font-size: 26px;
+}
+.profile-card p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 6px;
 }
 
-.profile-card{
-  width:330px;
-  padding:35px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(18px);
-  border-radius:22px;
-  text-align:center;
-  box-shadow:0 30px 60px rgba(0,0,0,0.8);
-  transform-style:preserve-3d;
-  transition:transform 0.1s ease;
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+  border-left: 5px solid #00c6ff;
+  padding-left: 15px;
 }
 
-.profile-card img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:4px solid #00c6ff;
-  margin-bottom:15px;
+/* Grid & Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+}
+.card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease;
+  text-align: center;
+}
+.card img {
+  width: 70px;
+  margin-bottom: 15px;
 }
 
-.profile-card h1{
-  font-size:26px;
+/* Links */
+.links a {
+  display: inline-block;
+  margin: 10px 12px 0 0;
+  padding: 12px 26px;
+  background: linear-gradient(135deg,#00c6ff,#0072ff);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+.links a:hover {
+  transform: translateY(-4px) scale(1.05);
 }
 
-.profile-card p{
-  font-size:14px;
-  opacity:0.85;
-  margin-top:6px;
-}
-
-/* ===== SECTIONS ===== */
-section{
-  max-width:1100px;
-  margin:100px auto;
-  padding:0 20px;
-}
-
-h2{
-  font-size:26px;
-  margin-bottom:30px;
-  border-left:5px solid #00c6ff;
-  padding-left:15px;
-}
-
-/* ===== 3D GRID ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:35px;
-}
-
-.card{
-  background:rgba(255,255,255,0.07);
-  backdrop-filter:blur(15px);
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.7);
-  transform-style:preserve-3d;
-  transition:transform 0.15s ease;
-}
-
-.card img{
-  width:70px;
-  margin-bottom:15px;
-}
-
-/* ===== LINKS ===== */
-.links a{
-  display:inline-block;
-  margin:10px 12px 0 0;
-  padding:12px 26px;
-  background:linear-gradient(135deg,#00c6ff,#0072ff);
-  color:white;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:bold;
-  box-shadow:0 10px 25px rgba(0,0,0,0.7);
-  transition:transform 0.3s ease;
-}
-
-.links a:hover{
-  transform:translateY(-4px) scale(1.05);
-}
-
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:30px;
-  opacity:0.7;
-  font-size:14px;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.7;
+  font-size: 14px;
 }
 </style>
 </head>
-
 <body>
 
 <canvas id="stars"></canvas>
 
-<!-- ===== HEADER ===== -->
+<!-- Header / Hero -->
 <header>
   <div class="profile-card tilt">
     <img src="profile.png" alt="Abhishek Muchalambe">
     <h1>Abhishek Muchalambe</h1>
     <p>Class 10 Student | Python & AI Enthusiast</p>
-    <p>GDG Pune • IIT Bombay Techfest</p>
+    <p>Campus Ambassador • Techfest IIT Bombay</p>
+    <p>Member • GDG Pune</p>
   </div>
 </header>
 
-<!-- ===== ABOUT ===== -->
+<!-- About Me -->
 <section>
   <h2>About Me</h2>
-  <p>👋 Hi! I’m a Class 10 student passionate about programming and emerging technologies.</p>
-  <p>📘 Completed <strong>Programming Basics (CS101.1x)</strong> by IIT Bombay.</p>
-  <p>🚀 Exploring Python, Artificial Intelligence, and Web Development.</p>
+  <p>👋 Hi! I’m <strong>Abhishek Muchalambe</strong>, a Class 10 student passionate about technology, coding, and leadership.</p>
+  <p>🎓 Completed <strong>Programming Basics (CS101.1x)</strong> by IIT Bombay and learned core Python concepts.</p>
+  <p>🏆 Currently serving as <strong>Campus Ambassador at Techfest IIT Bombay</strong>, promoting STEM events and innovation.</p>
+  <p>🚀 Interests: Python, Artificial Intelligence, Web Development.</p>
 </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
+<!-- Roles & Leadership -->
 <section>
-  <h2>Licenses & Certifications</h2>
-
+  <h2>Roles & Leadership</h2>
   <div class="grid">
     <div class="card tilt">
-      <img src="google-cloud.jpeg">
-      <strong>Introduction to Generative AI</strong><br><br>
-      Google Cloud<br>
-      Issued Feb 2025
+      <strong>Campus Ambassador</strong><br><br>
+      Techfest IIT Bombay<br>
+      Promoting innovation and STEM opportunities.
     </div>
-
     <div class="card tilt">
-      <img src="google-cloud.jpeg">
-      <strong>Large Language Models</strong><br><br>
-      Google Cloud<br>
-      Issued Feb 2025
-    </div>
-
-    <div class="card tilt">
-      <img src="iitb-logo.jpg">
-      <strong>Programming Basics (CS101.1x)</strong><br><br>
-      IIT Bombay<br>
-      Issued Sep 2024
-    </div>
-
-    <div class="card tilt">
-      <img src="guvi-hcl.png">
-      <strong>AI Workshop</strong><br><br>
-      HCL GUVI (One-Day)<br>
-      Conducted at IIT Bombay
+      <strong>Community Member</strong><br><br>
+      GDG Pune<br>
+      Learning and sharing knowledge on software development and AI.
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- Skills -->
+<section>
+  <h2>Skills & Technologies</h2>
+  <div class="grid">
+    <div class="card tilt">🐍 Python Programming</div>
+    <div class="card tilt">🤖 Artificial Intelligence (Beginner)</div>
+    <div class="card tilt">🌐 HTML, CSS, JavaScript</div>
+    <div class="card tilt">🧩 Problem Solving</div>
+    <div class="card tilt">🎯 Leadership & Communication</div>
+    <div class="card tilt">📢 Community Outreach</div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section>
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card tilt">
+      <strong>3D Portfolio Website</strong><br><br>
+      Built using HTML, CSS, and JavaScript.
+    </div>
+    <div class="card tilt">
+      <strong>Python Practice Programs</strong><br><br>
+      Small logic-based Python programs.
+    </div>
+    <div class="card tilt">
+      <strong>AI Workshop Hands-on</strong><br><br>
+      Practical AI exposure during HCL GUVI workshop at IIT Bombay.
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section>
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card tilt">
+      <img src="google-cloud.jpeg" alt="">
+      <strong>Introduction to Generative AI</strong><br><br>
+      Google Cloud | Feb 2025
+    </div>
+    <div class="card tilt">
+      <img src="google-cloud.jpeg" alt="">
+      <strong>Large Language Models</strong><br><br>
+      Google Cloud | Feb 2025
+    </div>
+    <div class="card tilt">
+      <img src="iitb-logo.jpg" alt="">
+      <strong>Programming Basics (CS101.1x)</strong><br><br>
+      IIT Bombay | Sep 2024
+    </div>
+    <div class="card tilt">
+      <img src="guvi-hcl.png" alt="">
+      <strong>AI Workshop</strong><br><br>
+      HCL GUVI • IIT Bombay
+    </div>
+  </div>
+</section>
+
+<!-- Tech Journey -->
+<section>
+  <h2>My Tech Journey</h2>
+  <div class="grid">
+    <div class="card tilt"><strong>2023</strong><br><br>Started coding and learning Python.</div>
+    <div class="card tilt"><strong>2024</strong><br><br>Completed IIT Bombay CS101.1x course.</div>
+    <div class="card tilt"><strong>2025</strong><br><br>Became Techfest IIT Bombay Campus Ambassador.</div>
+  </div>
+</section>
+
+<!-- Contact -->
 <section>
   <h2>Contact</h2>
   <div class="links">
@@ -202,46 +244,29 @@ footer{
   © 2025 Abhishek Muchalambe • 3D Interactive Portfolio
 </footer>
 
-<!-- ===== 3D TILT SCRIPT ===== -->
 <script>
+// 3D Tilt Effect
 document.querySelectorAll('.tilt').forEach(card=>{
   card.addEventListener('mousemove',e=>{
-    const rect=card.getBoundingClientRect();
-    const x=e.clientX-rect.left;
-    const y=e.clientY-rect.top;
-    const centerX=rect.width/2;
-    const centerY=rect.height/2;
-    const rotateX=((y-centerY)/centerY)*8;
-    const rotateY=((x-centerX)/centerX)*8;
-    card.style.transform=`rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width/2;
+    const cy = rect.height/2;
+    card.style.transform = `rotateX(${-(y-cy)/20}deg) rotateY(${(x-cx)/20}deg)`;
   });
   card.addEventListener('mouseleave',()=>{
-    card.style.transform='rotateX(0) rotateY(0)';
+    card.style.transform = 'rotateX(0) rotateY(0)';
   });
 });
 
-/* ===== STAR PARTICLES ===== */
-const canvas=document.getElementById('stars');
-const ctx=canvas.getContext('2d');
-let stars=[];
-
-function resize(){
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
-}
-resize();
-window.addEventListener('resize',resize);
-
-for(let i=0;i<150;i++){
-  stars.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*1.5,
-    d:Math.random()*0.5
-  });
-}
-
-function draw(){
+// Star Background
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
+resize(); window.addEventListener('resize', resize);
+let stars = Array.from({length:150},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5,d:Math.random()*0.5}));
+(function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle='white';
   stars.forEach(s=>{
@@ -249,11 +274,10 @@ function draw(){
     ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
     ctx.fill();
     s.y+=s.d;
-    if(s.y>canvas.height){s.y=0;}
+    if(s.y>canvas.height) s.y=0;
   });
-  requestAnimationFrame(draw);
-}
-draw();
+  requestAnimationFrame(animate);
+})();
 </script>
 
 </body>
