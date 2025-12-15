@@ -158,6 +158,25 @@ footer { text-align:center; padding:30px; opacity:0.7; font-size:14px; }
   </div>
 </section>
 
+<!-- Achievements / Counters -->
+<section>
+  <h2>My Achievements</h2>
+  <div class="grid">
+    <div class="card tilt">
+      <h1 id="projectsCounter">0</h1>
+      <p>Projects Completed</p>
+    </div>
+    <div class="card tilt">
+      <h1 id="certsCounter">0</h1>
+      <p>Certifications Earned</p>
+    </div>
+    <div class="card tilt">
+      <h1 id="rolesCounter">0</h1>
+      <p>Leadership Roles</p>
+    </div>
+  </div>
+</section>
+
 <!-- Contact -->
 <section>
   <h2>Contact</h2>
@@ -194,15 +213,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
 
-// Plane image
 const plane = new Image();
-plane.src='plane.png'; // put your PNG in the folder
+plane.src='plane.png'; // put your airplane PNG in folder
 
 let planes=[];
 for(let i=0;i<8;i++){
   planes.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height*0.8, speed:1+Math.random()*2, size:40+Math.random()*30});
 }
-
 let stars=Array.from({length:120},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2}));
 
 function animateBackground(){
@@ -222,6 +239,30 @@ function animateBackground(){
   requestAnimationFrame(animateBackground);
 }
 plane.onload=()=>{ animateBackground(); };
+
+// Animated Counters
+function animateCounter(id,target){
+  let count=0;
+  const speed=Math.ceil(target/100);
+  const counter=document.getElementById(id);
+  const interval=setInterval(()=>{
+    count+=speed;
+    if(count>=target){ count=target; clearInterval(interval); }
+    counter.innerText=count;
+  },30);
+}
+
+const countersSection=document.querySelector("section:nth-of-type(7)");
+let countersAnimated=false;
+window.addEventListener("scroll",()=>{
+  const rect=countersSection.getBoundingClientRect();
+  if(rect.top<window.innerHeight && !countersAnimated){
+    animateCounter("projectsCounter",5); // projects completed
+    animateCounter("certsCounter",5);    // certifications earned
+    animateCounter("rolesCounter",2);    // leadership roles
+    countersAnimated=true;
+  }
+});
 </script>
 
 </body>
