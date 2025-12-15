@@ -5,125 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhishek Muchalambe | 3D Portfolio</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', sans-serif; color:#eaf4ff; overflow-x:hidden; }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #0f2027, #000);
-  color: #eaf4ff;
-  overflow-x: hidden;
-}
-
-/* Canvas for stars */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+/* Canvas background */
+canvas { position: fixed; top:0; left:0; z-index:-1; }
 
 /* Header */
-header {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.profile-card {
-  width: 340px;
-  padding: 35px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-  transform-style: preserve-3d;
-}
-.profile-card img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid #00c6ff;
-  margin-bottom: 15px;
-}
-.profile-card h1 {
-  font-size: 26px;
-}
-.profile-card p {
-  font-size: 14px;
-  opacity: 0.85;
-  margin-top: 6px;
-}
+header { height:100vh; display:flex; justify-content:center; align-items:center; }
+.profile-card { width:340px; padding:35px; background: rgba(255,255,255,0.08); backdrop-filter: blur(18px); border-radius:22px; text-align:center; box-shadow:0 30px 60px rgba(0,0,0,0.8); transform-style:preserve-3d; }
+.profile-card img { width:140px; height:140px; border-radius:50%; border:4px solid #00c6ff; margin-bottom:15px; }
+.profile-card h1 { font-size:26px; }
+.profile-card p { font-size:14px; opacity:0.85; margin-top:6px; }
 
 /* Sections */
-section {
-  max-width: 1100px;
-  margin: 100px auto;
-  padding: 0 20px;
-}
-h2 {
-  font-size: 26px;
-  margin-bottom: 30px;
-  border-left: 5px solid #00c6ff;
-  padding-left: 15px;
-}
+section { max-width:1100px; margin:100px auto; padding:0 20px; }
+h2 { font-size:26px; margin-bottom:30px; border-left:5px solid #00c6ff; padding-left:15px; }
 
 /* Grid & Cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
-}
-.card {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(15px);
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-  transform-style: preserve-3d;
-  transition: transform 0.15s ease;
-  text-align: center;
-}
-.card img {
-  width: 70px;
-  margin-bottom: 15px;
-}
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:35px; }
+.card { background: rgba(255,255,255,0.07); backdrop-filter: blur(15px); border-radius:18px; padding:25px; box-shadow:0 20px 40px rgba(0,0,0,0.7); transform-style: preserve-3d; transition: transform 0.15s ease; text-align:center; }
+.card img { width:70px; margin-bottom:15px; }
 
 /* Links */
-.links a {
-  display: inline-block;
-  margin: 10px 12px 0 0;
-  padding: 12px 26px;
-  background: linear-gradient(135deg,#00c6ff,#0072ff);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-  transition: transform 0.3s ease;
-}
-.links a:hover {
-  transform: translateY(-4px) scale(1.05);
-}
+.links a { display:inline-block; margin:10px 12px 0 0; padding:12px 26px; background: linear-gradient(135deg,#00c6ff,#0072ff); color:white; text-decoration:none; border-radius:30px; font-weight:bold; box-shadow:0 10px 25px rgba(0,0,0,0.7); transition: transform 0.3s ease; }
+.links a:hover { transform: translateY(-4px) scale(1.05); }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 30px;
-  opacity: 0.7;
-  font-size: 14px;
-}
+footer { text-align:center; padding:30px; opacity:0.7; font-size:14px; }
 </style>
 </head>
 <body>
 
-<canvas id="stars"></canvas>
+<canvas id="background"></canvas>
 
-<!-- Header / Hero -->
+<!-- Header -->
 <header>
   <div class="profile-card tilt">
     <img src="profile.png" alt="Abhishek Muchalambe">
@@ -138,9 +54,9 @@ footer {
 <section>
   <h2>About Me</h2>
   <p>👋 Hi! I’m <strong>Abhishek Muchalambe</strong>, a Class 10 student passionate about technology, coding, and leadership.</p>
-  <p>🎓 Completed <strong>Programming Basics (CS101.1x)</strong> by IIT Bombay and learned core Python concepts.</p>
+  <p>🎓 Completed <strong>Programming Basics (CS101.1x)</strong> by IIT Bombay and gained hands-on experience with Python.</p>
   <p>🏆 Currently serving as <strong>Campus Ambassador at Techfest IIT Bombay</strong>, promoting STEM events and innovation.</p>
-  <p>🚀 Interests: Python, Artificial Intelligence, Web Development.</p>
+  <p>🚀 Interests: Python, Artificial Intelligence, Web Development, and Cybersecurity.</p>
 </section>
 
 <!-- Roles & Leadership -->
@@ -169,7 +85,7 @@ footer {
     <div class="card tilt">🌐 HTML, CSS, JavaScript</div>
     <div class="card tilt">🧩 Problem Solving</div>
     <div class="card tilt">🎯 Leadership & Communication</div>
-    <div class="card tilt">📢 Community Outreach</div>
+    <div class="card tilt">🔒 Cybersecurity Basics (TryHackMe)</div>
   </div>
 </section>
 
@@ -178,16 +94,24 @@ footer {
   <h2>Projects</h2>
   <div class="grid">
     <div class="card tilt">
-      <strong>3D Portfolio Website</strong><br><br>
-      Built using HTML, CSS, and JavaScript.
+      <strong>AI Traffic Simulation</strong><br><br>
+      Simulates traffic flow using Python and AI algorithms.
+    </div>
+    <div class="card tilt">
+      <strong>Snake Game</strong><br><br>
+      Classic snake game built in Python.
     </div>
     <div class="card tilt">
       <strong>Python Practice Programs</strong><br><br>
-      Small logic-based Python programs.
+      Logic-based Python exercises.
+    </div>
+    <div class="card tilt">
+      <strong>3D Portfolio Website</strong><br><br>
+      Interactive portfolio built with HTML, CSS & JS.
     </div>
     <div class="card tilt">
       <strong>AI Workshop Hands-on</strong><br><br>
-      Practical AI exposure during HCL GUVI workshop at IIT Bombay.
+      Practical AI learning at HCL GUVI workshop, IIT Bombay.
     </div>
   </div>
 </section>
@@ -216,6 +140,11 @@ footer {
       <strong>AI Workshop</strong><br><br>
       HCL GUVI • IIT Bombay
     </div>
+    <div class="card tilt">
+      <img src="tryhackme.png" alt="">
+      <strong>Cybersecurity Learning</strong><br><br>
+      TryHackMe | Beginner-friendly hands-on cybersecurity
+    </div>
   </div>
 </section>
 
@@ -223,8 +152,8 @@ footer {
 <section>
   <h2>My Tech Journey</h2>
   <div class="grid">
-    <div class="card tilt"><strong>2023</strong><br><br>Started coding and learning Python.</div>
-    <div class="card tilt"><strong>2024</strong><br><br>Completed IIT Bombay CS101.1x course.</div>
+    <div class="card tilt"><strong>2023</strong><br><br>Started learning Python and coding basics.</div>
+    <div class="card tilt"><strong>2024</strong><br><br>Completed IIT Bombay CS101.1x and built projects.</div>
     <div class="card tilt"><strong>2025</strong><br><br>Became Techfest IIT Bombay Campus Ambassador.</div>
   </div>
 </section>
@@ -245,7 +174,7 @@ footer {
 </footer>
 
 <script>
-// 3D Tilt Effect
+// 3D Tilt
 document.querySelectorAll('.tilt').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const rect = card.getBoundingClientRect();
@@ -255,29 +184,44 @@ document.querySelectorAll('.tilt').forEach(card=>{
     const cy = rect.height/2;
     card.style.transform = `rotateX(${-(y-cy)/20}deg) rotateY(${(x-cx)/20}deg)`;
   });
-  card.addEventListener('mouseleave',()=>{
-    card.style.transform = 'rotateX(0) rotateY(0)';
-  });
+  card.addEventListener('mouseleave',()=>{ card.style.transform='rotateX(0) rotateY(0)'; });
 });
 
-// Star Background
-const canvas = document.getElementById('stars');
+// Night sky background with airplanes
+const canvas = document.getElementById('background');
 const ctx = canvas.getContext('2d');
-function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
-resize(); window.addEventListener('resize', resize);
-let stars = Array.from({length:150},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5,d:Math.random()*0.5}));
-(function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+
+// Plane image
+const plane = new Image();
+plane.src='plane.png'; // put your PNG in the folder
+
+let planes=[];
+for(let i=0;i<8;i++){
+  planes.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height*0.8, speed:1+Math.random()*2, size:40+Math.random()*30});
+}
+
+let stars=Array.from({length:120},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2}));
+
+function animateBackground(){
+  const gradient = ctx.createLinearGradient(0,0,0,canvas.height);
+  gradient.addColorStop(0,'#0a0f21'); gradient.addColorStop(1,'#04060d');
+  ctx.fillStyle=gradient; ctx.fillRect(0,0,canvas.width,canvas.height);
+
   ctx.fillStyle='white';
-  stars.forEach(s=>{
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fill();
-    s.y+=s.d;
-    if(s.y>canvas.height) s.y=0;
+  stars.forEach(s=>{ ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); });
+
+  planes.forEach(p=>{
+    ctx.drawImage(plane,p.x,p.y,p.size,p.size*0.5);
+    p.x+=p.speed;
+    if(p.x>canvas.width){ p.x=-p.size; p.y=Math.random()*canvas.height*0.8; }
   });
-  requestAnimationFrame(animate);
-})();
+
+  requestAnimationFrame(animateBackground);
+}
+plane.onload=()=>{ animateBackground(); };
 </script>
 
 </body>
